@@ -19,11 +19,12 @@ Nota:
 Se non vi sentite particolarmente creativi, questa potrebbe essere un’implementazione da seguire per il secondo milestone. Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
 */
 
-const name = document.getElementById('name');
+const name = document.getElementById('name').innerHTML;
 const distance = document.getElementById('distance');
 const age = document.querySelector('age')
 
 const user_output = document.getElementById('user_output')
+document.getElementById('user_output').innerHTML = name.value;
 
 // Calcolo del prezzo
 // if (age < 18) {
