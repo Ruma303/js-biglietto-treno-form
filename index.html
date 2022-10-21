@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-biglietto-treno-form</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section>
+        <h1>Calcola il prezzo del tuo biglietto</h1>
+        <div class="container">
+            <!-- <div class="form_container"> -->
+                <form action="#" method="get">
+                    <div class="top_form">
+                        <lable>Nome e cognome</lable>
+                        <input type="text" name="name" id="name">
+                        <lable>Km da percorrere</lable> 
+                        <input type="number" name="distance" id="distance">
+                        <lable>Fascia di età</lable>
+                        <select name="">
+                            <option value="baby" disabled><=14 non ammessi</option>
+                            <option value="adult" class="age" selected>Maggiorenne</option>
+                            <option value="underage" class="age">Minorenne</option>
+                            <option value="over65" class="age">Over 65</option>
+                        </select>
+                    </div>
+                    <div class="bottom_form">
+                        <button class="generate" type="submit">Genera</button>
+                        <button class="delete" type="reset">Annulla</button>
+                    </div>
+                </form>
+            <!-- </div> -->
+        </div>
+    </section>
+    <section>
+        <h1>il tuo biglietto</h1>
+        <div class="container bottom">
+            <h3>DETTAGLIO PASSEGGERI</h3>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NOME DEL PASSEGGERO</th>
+                            <th>Offerta</th>
+                            <th>Carrozza</th>
+                            <th>Codice CP</th>
+                            <th>Costo del biglietto</th>
+                            <th>Distanza selezionata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th id="user_output"></th>
+                        </tr>
+
+                        <tr>
+                            <th></th>
+                            <th class="last_th">Biglietto standard</th>
+                            <th class="last_th" id="random_carriage"></th>
+                            <th class="last_th" id="random_CP"></th>
+                            <th class="last_th" id="final_price_output"></th>
+                            <th class="last_th" id="distance_output"> Km</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

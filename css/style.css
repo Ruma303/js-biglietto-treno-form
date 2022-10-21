@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(184, 21, 79);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    color: white;
+}
+
+section {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    background-color: white;
+    width: 80%;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+}
+
+.container.bottom {
+    display: block;
+}
+
+.container.bottom{
+    text-align: left;
+}
+
+.last_th {
+    font-size: .9rem;
+    font-weight: 400;
+}
