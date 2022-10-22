@@ -27,10 +27,11 @@ const output = document.getElementById('final_price_output');
 
 submit.addEventListener("click", function () {
     const distance = parseFloat(distance.value);
-    let ticketPrice = parseFloat(distance * 0.21);
+    const ticketPrice = parseFloat(distance * 0.21);
     const age = age.value;
     let discount = 0; 
 
+    // calcolo del prezzo
     if (age === 'underage') {
         discount = 20;
     } else if (age === 'over65') {
@@ -51,4 +52,8 @@ reset.addEventListener('click', function(){
 })  
         
 
+// Funzione random carrozza
 
+
+
+// Funzione random codice cp
