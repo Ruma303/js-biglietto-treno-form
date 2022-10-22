@@ -19,22 +19,36 @@ Nota:
 Se non vi sentite particolarmente creativi, questa potrebbe essere un’implementazione da seguire per il secondo milestone. Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
 */
 
-const name = document.getElementById('name').innerHTML;
+const name = document.getElementById('name');
 const distance = document.getElementById('distance');
-const age = document.querySelector('age')
+const age = document.querySelector('age');
+const submit = document.getElementById('submit');
+const output = document.getElementById('final_price_output');
 
-const user_output = document.getElementById('user_output')
-document.getElementById('user_output').innerHTML = name.value;
+submit.addEventListener("click", function () {
+    const distance = parseFloat(distance.value);
+    let ticketPrice = parseFloat(distance * 0.21);
+    const age = age.value;
+    let discount = 0; 
 
-// Calcolo del prezzo
-// if (age < 18) {
-//      let underagePrice = parseInt(price * 0.80).toFixed(2);
-//      console.log(underagePrice,"€");
-//  }
-// else if (age > 65) {
-//      let newPrice = parseInt(price * 0.60).toFixed(2);
-//     console.log(newPrice,"€");
-// } else {
-//     console.log(price + "€").toFixed(2);
-// }
+    if (age === 'underage') {
+        discount = 20;
+    } else if (age === 'over65') {
+        discount = 40;
+    }
+
+    if (name.value === '' || distance.value === '') {
+        output.innerHTML = ('Informazioni mancanti!');
+    } else {
+        let finalPrice = ticketPrice - ticketPrice * discount / 100;
+        finalPrice = parseFloat(ticketPrice.toFixed(2));
+        output.innerHTML = ('Il prezzo del tuo biglietto è'+ finalPrice + '€')
+    }
+});
+   
+reset.addEventListener('click', function(){
+    document.location.reload();
+})  
+        
+
 

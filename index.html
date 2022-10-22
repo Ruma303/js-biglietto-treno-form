@@ -14,12 +14,12 @@
             <!-- <div class="form_container"> -->
                 <form action="#" method="get">
                     <div class="top_form">
-                        <lable>Nome e cognome</lable>
+                        <lable for="name">Nome e cognome</lable>
                         <input type="text" name="name" id="name">
-                        <lable>Km da percorrere</lable> 
+                        <lable for="distance">Km da percorrere</lable> 
                         <input type="number" name="distance" id="distance">
-                        <lable>Fascia di età</lable>
-                        <select name="">
+                        <lable for="age">Fascia di età</lable>
+                        <select name="age" id="age">
                             <option value="baby" disabled><=14 non ammessi</option>
                             <option value="adult" class="age" selected>Maggiorenne</option>
                             <option value="underage" class="age">Minorenne</option>
@@ -27,8 +27,8 @@
                         </select>
                     </div>
                     <div class="bottom_form">
-                        <button class="generate" type="submit">Genera</button>
-                        <button class="delete" type="reset">Annulla</button>
+                        <button class="generate" type="submit" id="submit">Genera</button>
+                        <button class="delete" type="reset" id="reset">Annulla</button>
                     </div>
                 </form>
             <!-- </div> -->
