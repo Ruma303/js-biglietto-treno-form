@@ -16,3 +16,11 @@ input,
 select {
     border-color:rgb(184, 21, 79);
 }
+
+.top-border {
+    border-top: solid 1px grey;
+}
+
+.bottom-border {
+    border-bottom: solid 1px grey;
+}

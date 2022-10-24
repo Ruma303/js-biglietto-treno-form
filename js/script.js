@@ -1,59 +1,60 @@
-/* 
-Chiedere all'utente:
--numero di km da percorrere
--età
-
-calcolare prezzo del biglietto seguendo queste regole:
--il prezzo del biglietto è 0.21€/Km
--sconto 20% minorenni
-.sconto 40% over 65
-
-MILESTONE 1:
-Iniziamo implementando il programma senza alcuna estetica: usando esclusivamente due input (per i chilometri e per l'età) e un bottone (non stilizzati), realizziamo le specifiche scritte sopra. La risposta finale (o output) sarà anch’essa da scrivere in console o su un semplice div in pagina.
-
-MILESTONE 2:
-Solo una volta che il milestone 1 sarà completo e funzionante allora realizzeremo un form in pagina in cui l’utente potrà inserire i dati e visualizzare il calcolo finale con il prezzo.
-Il recap dei dati e l'output del prezzo finale, andranno quindi stampati in pagina (il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo).
-
-Nota:
-Se non vi sentite particolarmente creativi, questa potrebbe essere un’implementazione da seguire per il secondo milestone. Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
-*/
-
-const name = document.getElementById('name');
-const distance = document.getElementById('distance');
-const age = document.querySelector('age');
+const inputName = document.getElementById('name');
+const inputDistance = document.getElementById('distance');
+const inputAge = document.querySelector('#age');
 const submit = document.getElementById('submit');
-const output = document.getElementById('final_price_output');
-
-submit.addEventListener("click", function () {
-    const distance = parseFloat(distance.value);
-    const ticketPrice = parseFloat(distance * 0.21);
-    const age = age.value;
-    let discount = 0; 
-
-    // calcolo del prezzo
-    if (age === 'underage') {
-        discount = 20;
-    } else if (age === 'over65') {
-        discount = 40;
-    }
-
-    if (name.value === '' || distance.value === '') {
-        output.innerHTML = ('Informazioni mancanti!');
-    } else {
-        let finalPrice = ticketPrice - ticketPrice * discount / 100;
-        finalPrice = parseFloat(ticketPrice.toFixed(2));
-        output.innerHTML = ('Il prezzo del tuo biglietto è'+ finalPrice + '€')
-    }
-});
-   
-reset.addEventListener('click', function(){
-    document.location.reload();
-})  
-        
-
-// Funzione random carrozza
+const pricePerKm = 0.21;
 
 
+// DENTRO IL CLICK PREMENDO IL BOTTONE GENERA
+
+submit.addEventListener('click', function (){
+
+const name = inputName.value;
+const distance = parseFloat(inputDistance.value);
+const age = inputAge.value;
+const basePrice = 0;
+const standardPrice = pricePerKm * distance;
+let discount;
+
+console.log(name);
+console.log(distance);
+console.log(age);
+
+// CALCOLO DEL PREZZO
+switch (age) {
+    case 'underage':discount = 20;
+    break;
+
+    case 'adult': discount = 0;
+    break;
+
+    case 'over65': discount = 40;
+    break;
+}
+let finalPrice = standardPrice - standardPrice * discount / 100;
+finalPrice = Math.round(finalPrice * 100) / 100;
+console.log('Il prezzo del biglietto è: ' + finalPrice + '€');
+
+// PRINTING INSERENDO NELL'HTML I RISULTATI
+const outputName = document.getElementById('user');
+const outputPrice = document.getElementById('final_price_output');
+const outputDistance = document.getElementById('distance_output');
+outputName.innerHTML = inputName.value;
+outputPrice.innerHTML = finalPrice + '€';
+outputDistance.innerHTML = inputDistance.value + 'Km';
+})
+// FUORI IL CLICK
+
+
+
+
+
+/*// Funzione random carrozza
+const outputCarriage = document.querySelector('#random_carriage');
+randomCarriage = Math.floor(Math.random() * (20 - 1) + 1);
+// document.write(document.querySelector('#random_carriage').innerHTML = randomCarriage); 
 
 // Funzione random codice cp
+let randomCP = Math.floor(Math.random()*99999);
+document.write(document.querySelector('#random_CP').innerHTML = randomCP);*/
+
