@@ -1,60 +1,79 @@
+//input
 const inputName = document.getElementById('name');
 const inputDistance = document.getElementById('distance');
 const inputAge = document.querySelector('#age');
+//bottoni
 const submit = document.getElementById('submit');
-const pricePerKm = 0.21;
-
-
-// DENTRO IL CLICK PREMENDO IL BOTTONE GENERA
-
-submit.addEventListener('click', function (){
-
-const name = inputName.value;
-const distance = parseFloat(inputDistance.value);
-const age = inputAge.value;
-const basePrice = 0;
-const standardPrice = pricePerKm * distance;
-let discount;
-
-console.log(name);
-console.log(distance);
-console.log(age);
-
-// CALCOLO DEL PREZZO
-switch (age) {
-    case 'underage':discount = 20;
-    break;
-
-    case 'adult': discount = 0;
-    break;
-
-    case 'over65': discount = 40;
-    break;
-}
-let finalPrice = standardPrice - standardPrice * discount / 100;
-finalPrice = Math.round(finalPrice * 100) / 100;
-console.log('Il prezzo del biglietto è: ' + finalPrice + '€');
-
-// PRINTING INSERENDO NELL'HTML I RISULTATI
-const outputName = document.getElementById('user');
-const outputPrice = document.getElementById('final_price_output');
+const reset= document.getElementById('reset');
+//output
+const eleTicket = document.querySelector('.ticket');
+const outputOffering = document.querySelector('#offering_output');
+const outputName = document.getElementById('user'); 
+const outputPrice = document.getElementById('price_output');
 const outputDistance = document.getElementById('distance_output');
-outputName.innerHTML = inputName.value;
-outputPrice.innerHTML = finalPrice + '€';
-outputDistance.innerHTML = inputDistance.value + 'Km';
-})
+
+
+		
+
 // FUORI IL CLICK
 
+submit.addEventListener('focusin', function (e) {
+	e.preventDefault();
+	//Controlli
+	if (inputDistance.value != '' && inputName.value != '') {
+	const distance = parseFloat(inputDistance.value);
+	const age = inputAge.value;
+	//costanti per calcoli
+	const pricePerKm = 0.21;
+	const basePrice = pricePerKm * distance;
+		
+		// Sceltà età
+		let discountRate = 0;
+		switch (age) {
+			case 'underage':
+				discountRate = 20;
+				outputOffering.innerHTML = `Sconto del 20%`;
+			break;
+			
+			case 'over65':
+				discountRate = 40;
+				outputOffering.innerHTML = `Sconto del 40%`;
+				break;
+
+			default :
+			outputOffering.innerHTML = `Biglietto standard`;
+			}
+			
+		//Calcolo sconto
+		let totalPrice = basePrice - basePrice * discountRate / 100;
+		console.log('Il prezzo del biglietto è: ' + totalPrice + ' €');
+
+		//Stampo su HTML i valori
+		outputName.innerHTML = inputName.value;
+		outputPrice.innerHTML = `${totalPrice.toFixed(2)}€`;
+		outputDistance.innerHTML = `${inputDistance.value} Km`;
+		
+		// Funzione random carrozza
+		const carriage = document.querySelector('#random_carriage');
+		carriage.innerHTML = Math.floor(Math.random() * (20 - 1) + 1);
+		// Funzione random codice cp
+		let randomCP = document.querySelector('#random_CP');
+		randomCP.innerHTML = Math.floor(Math.random()*99999);
+
+		//togliere la classe hidden
+		eleTicket.classList.remove('hidden');
+	} else {
+		console.log('Valori mancanti! Inserire i valori!')
+	}
+});
 
 
+// RESET
+reset.addEventListener('click', function (){
+	outputName.innerHTML = 'Campo obbligatorio!';
+    outputPrice.innerHTML = 'Campo obbligatorio!';
+    userOutput.classList.add('hidden');
+})
 
 
-/*// Funzione random carrozza
-const outputCarriage = document.querySelector('#random_carriage');
-randomCarriage = Math.floor(Math.random() * (20 - 1) + 1);
-// document.write(document.querySelector('#random_carriage').innerHTML = randomCarriage); 
-
-// Funzione random codice cp
-let randomCP = Math.floor(Math.random()*99999);
-document.write(document.querySelector('#random_CP').innerHTML = randomCP);*/
 

@@ -24,3 +24,7 @@ select {
 .bottom-border {
     border-bottom: solid 1px grey;
 }
+
+.hidden {
+    display: none;
+}

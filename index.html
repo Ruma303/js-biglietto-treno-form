@@ -15,7 +15,7 @@
     <section class="container my-5 text-center">
         <h1 class="text-uppercase text-white">Calcola il prezzo del tuo biglietto</h1>
         <div class="container bg-white rounded">
-                <!-- <form action="#" method="get" id="form_user"> -->
+                <div action="#" method="get" id="form_user">
                 <div class="top_form row py-3 px-5">
                     <div class="col d-flex flex-column">
                         <lable for="name">Nome e cognome</lable>
@@ -27,11 +27,11 @@
                     </div>
                     <div class="col d-flex flex-column">
                         <lable for="age">Fascia di età</lable>
-                        <select name="" class="rounded" id="age">
+                        <select class="rounded" id="age">
                             <option value="null" selected disabled>Seleziona età</option>
-                            <option value="adult" class="age">Maggiorenne</option>
-                            <option value="underage" class="age">Minorenne</option>
-                            <option value="over65" class="age">Over 65</option>
+                            <option value="adult">Maggiorenne</option>
+                            <option value="underage">Minorenne</option>
+                            <option value="over65">Over 65</option>
                         </select>
                     </div>
                 </div>
@@ -41,10 +41,10 @@
                         <button class="btn btn-secondary" id="reset">Annulla</button>
                     </div>
                 </div>
-            <!-- </form> -->
+            </div>
         </div>
     </section>
-    <section class="container d-none">
+    <section class="container ticket">
         <h1 class="text-uppercase text-white text-center">il tuo biglietto</h1>
         <div class="container bottom bg-white rounded op_form row py-3 px-5 m-auto">
             <h3>DETTAGLIO PASSEGGERI</h3>
@@ -60,15 +60,15 @@
             </div>
             <div>
                 <div class="row">
-                    <div id="user" class="bg-secondary"></div>
+                    <div id="user" class="col bg-secondary"></div>
                 </div>
 
                 <div class="row bottom-border">
                     <div class="col bg-secondary"></div>
-                    <div class="col bg-white"></div>
+                    <div class="col bg-white" id="offering_output"></div>
                     <div class="col bg-white" id="random_carriage"></div>
                     <div class="col bg-white" id="random_CP"></div>
-                    <div class="col bg-white" id="final_price_output"></div>
+                    <div class="col bg-white" id="price_output"></div>
                     <div class="col bg-white" id="distance_output"></div>
                 </div>
             </div>
